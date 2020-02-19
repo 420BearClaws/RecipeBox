@@ -1,6 +1,9 @@
 var express = require('express');
 var path = require('path');
 
+//declaring routers
+var homeRouter = require('./routes/home');
+
 var app = express();
 
 //creating a port
@@ -12,10 +15,8 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
-
   if (isNaN(port)) {
     return val;
   }
@@ -26,16 +27,13 @@ function normalizePort(val) {
 
   return false;
 }
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
-
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
@@ -49,7 +47,6 @@ function onError(error) {
       throw error;
   }
 }
-
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
@@ -60,15 +57,11 @@ function onListening() {
 //end create port
 
 
-var homeRouter = require('./routes/home');
-
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 
-
+//using routers
 app.use('/', homeRouter);
 
 
