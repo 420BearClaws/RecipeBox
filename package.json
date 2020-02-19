@@ -4,6 +4,7 @@
   "description": "Group Project Recipe Box",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.9.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "pug": "^2.0.4"
   }
 }
