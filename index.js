@@ -3,6 +3,9 @@ var path = require('path');
 
 //declaring routers
 var homeRouter = require('./routes/home');
+var signloginRouter = require('./routes/loginsignup');
+var myrecipesRouter = require('./routes/myrecipes');
+var publicrecipesRouter = require('./routes/publicrecipes');
 
 var app = express();
 
@@ -63,6 +66,9 @@ app.set('view engine', 'pug');
 
 //using routers
 app.use('/', homeRouter);
+app.use('/', myrecipesRouter);
+app.use('/', publicrecipesRouter);
+app.use('/', signloginRouter);
 
 
 module.exports = app;
