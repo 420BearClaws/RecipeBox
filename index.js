@@ -1,25 +1,26 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 
 //declaring routers
-var homeRouter = require('./routes/home');
-var signloginRouter = require('./routes/loginsignup');
-var myrecipesRouter = require('./routes/myrecipes');
-var publicrecipesRouter = require('./routes/publicrecipes');
+const homeRouter = require('./routes/home');
+const signloginRouter = require('./routes/loginsignup');
+const myrecipesRouter = require('./routes/myrecipes');
+const publicrecipesRouter = require('./routes/publicrecipes');
+const enchiladacasseroleRouter = require('./routes/enchiladacasserole');
 
-var app = express();
+const app = express();
 
 //creating a port
-var debug = require('debug')('420BC:server');
-var http = require('http');
-var port = normalizePort(process.env.PORT || '3000');
+const debug = require('debug')('420BC:server');
+const http = require('http');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-var server = http.createServer(app);
+const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
   if (isNaN(port)) {
     return val;
   }
@@ -34,7 +35,7 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-  var bind = typeof port === 'string'
+  const bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
   switch (error.code) {
@@ -51,24 +52,23 @@ function onError(error) {
   }
 }
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  const addr = server.address();
+  const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
 //end create port
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
 
 //using routers
 app.use('/', homeRouter);
 app.use('/', myrecipesRouter);
 app.use('/', publicrecipesRouter);
 app.use('/', signloginRouter);
+app.use('/', enchiladacasseroleRouter);
 
 
 module.exports = app;
