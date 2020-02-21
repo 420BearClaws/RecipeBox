@@ -6,7 +6,10 @@ a.navButton {
     width: 80px;
 }
 h1 {
-    font-size: 1000;
+    color: white;
+    font-size: 45px;
+    background-image: linear-gradient(rgb(176, 100, 247), rgb(0, 217, 255));;
+
 }
 img {
     border-radius: 20px;
