@@ -1,0 +1,14 @@
+body {
+    background-image: linear-gradient(rgb(0, 217, 255), rgb(176, 100, 247));;
+}
+a.navButton {
+    height: 55px;
+    width: 80px;
+}
+h1 {
+    font-size: 1000;
+}
+img {
+    border-radius: 20px;
+    border: 1px solid white;
+}

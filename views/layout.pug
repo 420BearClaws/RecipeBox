@@ -1,13 +1,16 @@
 doctype html
 html
   head
+    link(type='text/css' href='/css/styles.css' rel='stylesheet')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
   body
     div
     a(href='/')
-      img(src='images/BearClawLogo.png')
-    a(href='loginorsignup') Login/Sign Up
-    a(href='myrecipes') My Recipes
-    a(href='publicrecipes') Public Recipes
+      img(src='images/BearClawLogo.png' height='75px' width='100px')
+    a.navButton(href='loginorsignup')
+      img(src='images/bclogin.png' height='75px' width='100px')
+    a.navButton(href='myrecipes')
+      img(src='images/bcmyrecipes.png' height='75px' width='100px')
+    a.navButton(href='publicrecipes')
+      img(src='images/bcpublic.png' height='75px' width='100px')
     block content

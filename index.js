@@ -9,6 +9,8 @@ const publicrecipesRouter = require('./routes/publicrecipes');
 const enchiladacasseroleRouter = require('./routes/enchiladacasserole');
 
 const app = express();
+app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //creating a port
 const debug = require('debug')('420BC:server');
