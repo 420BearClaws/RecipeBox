@@ -7,7 +7,12 @@ const loginRouter = require("./routes/login");
 const signupRouter = require("./routes/signup");
 const myrecipesRouter = require("./routes/myrecipes");
 const publicrecipesRouter = require("./routes/publicrecipes");
-const enchiladacasseroleRouter = require("./routes/enchiladacasserole");
+const recipesRouter = require("./routes/recipes");
+const recipes2Router = require("./routes/recipes2");
+const recipes3Router = require("./routes/recipes3");
+const recipes4Router = require("./routes/recipes4");
+const recipes5Router = require("./routes/recipes5");
+const recipes6Router = require("./routes/recipes6");
 
 const app = express();
 app.use(express.static("public"));
@@ -68,6 +73,10 @@ app.use("/", myrecipesRouter);
 app.use("/", publicrecipesRouter);
 app.use("/", loginRouter);
 app.use("/", signupRouter);
-app.use("/", enchiladacasseroleRouter);
-
+app.use("/", recipesRouter);
+app.use("/", recipes2Router);
+app.use("/", recipes3Router);
+app.use("/", recipes4Router);
+app.use("/", recipes5Router);
+app.use("/", recipes6Router);
 module.exports = app;
