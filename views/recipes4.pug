@@ -1,30 +1,21 @@
-doctype html
-html
-head
-title= title
-link(rel='stylesheet', href='/stylesheets/style.css')
-body
-div
-a(href='/')
-img(src='images/BearClawLogo.png')
-a(href='login') Log In
-a(href='myrecipes') My Recipes
-a(href='publicrecipes') Public Recipes
-h1= title
-h2='Ingredients:'
-ul
-li='1 lb asparagus'
-li='1 1/2 T olive oil'
-li='1/2 t kosher salt'
-h2='Instructions:'
-ol
-li='Preheat oven to 425°F.'
-li='Cut off the woody bottom part of the asparagus spears and discard.'
-li='With a vegetable peeler, peel off the skin on the bottom 2-3 inches of the spears.'
-li='Place asparagus on foil-lined baking sheet and drizzle with olive oil.'
-li='Sprinkle with salt.'
-li='With your hands, roll the asparagus around until they are evenly coated with oil and salt.'
-li='Roast for 10-15 minutes, depending on the thickness of your stalks and how tender you like them.'
-li='They should be tender when pierced with the tip of a knife.'
-li='The tips of the spears will get very brown but watch them to prevent burning.'
-li='They are great plain, but sometimes I serve them with a light vinaigrette if we need something acidic to balance out our meal.'
+extends layout
+
+block content
+    h1= title
+    h2='Ingredients:'
+    ul
+        li='1 lb asparagus'
+        li='1 1/2 T olive oil'
+        li='1/2 t kosher salt'
+    h2='Instructions:'
+    ol
+        li='Preheat oven to 425°F.'
+        li='Cut off the woody bottom part of the asparagus spears and discard.'
+        li='With a vegetable peeler, peel off the skin on the bottom 2-3 inches of the spears.'
+        li='Place asparagus on foil-lined baking sheet and drizzle with olive oil.'
+        li='Sprinkle with salt.'
+        li='With your hands, roll the asparagus around until they are evenly coated with oil and salt.'
+        li='Roast for 10-15 minutes, depending on the thickness of your stalks and how tender you like them.'
+        li='They should be tender when pierced with the tip of a knife.'
+        li='The tips of the spears will get very brown but watch them to prevent burning.'
+        li='They are great plain, but sometimes I serve them with a light vinaigrette if we need something acidic to balance out our meal.'

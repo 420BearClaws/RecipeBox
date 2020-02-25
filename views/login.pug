@@ -4,12 +4,16 @@ block content
   .main.container
     .row
       .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 Log In
-        form(method='POST' action='/login')
+        form(method='POST' action='/login' class = "loginform")
+          span(class = "formtitle") Log In
           div.form-group
-            label(for='email') Email
-            input.form-control(type='text' id='email' placeholder='email' name='email')
+            input.form-control(type='text' id='email' placeholder='Email' name='email' class = "inputEmail validate-input" data-validate="Valid email: ex@test.com")
           div.form-group
-            label(for='password') Password
-            input.form-control(type='password' id='password' placeholder='password' name='password')
-          button.btn.btn-primary(type='submit') Log in 
+            input.form-control(type='password' id='password' placeholder='Password' name='password' class = "inputEmail validate-input" data-validate="Password required")
+            button.btn.btn-primary(type='submit' class = "buttonlogin") Login 
+          div(class = "textcenter")
+            span(class = "txt") Forgot 
+            a(class = "txt1" href = "#") Username / Password?
+          div(class = "txtcenter")
+            a(class ="txt2" href="#") Create your Account
+          

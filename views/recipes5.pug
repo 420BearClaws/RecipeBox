@@ -1,35 +1,26 @@
-doctype html
-html
-head
-title= title
-link(rel='stylesheet', href='/stylesheets/style.css')
-body
-div
-a(href='/')
-img(src='images/BearClawLogo.png')
-a(href='login') Log In
-a(href='myrecipes') My Recipes
-a(href='publicrecipes') Public Recipes
-h1= title
-h2='Ingredients:'
-ul
-li='2-1/2 cups rolled oats, (not instant)'
-li='1-1/4 cups all-purpose flour'
-li='1 T grated orange rind'
-li='1/4 t salt'
-li='1 c cold butter, cubed'
-li='3/4 c packed brown sugar'
-li='3 cups fresh blueberries'
-li='1/2 c granulated sugar'
-li='1/3 c orange juice'
-li='4 t cornstarch'
-h2='Instructions:'
-ol
-li='Filling: In saucepan, bring blueberries, sugar and orange juice to boil; reduce heat and simmer until tender, about 10 minutes.'
-li='Whisk cornstarch with 2 tbsp (25 mL) water; whisk into blueberries and boil, stirring, until thickened, about 1 minute.'
-li='Place plastic wrap directly on surface; refrigerate until cooled, about 1 hour.'
-li='In large bowl, whisk together oats, flour, sugar, orange rind and salt ; with pastry blender, cut in butter until in coarse crumbs.'
-li='Press half into 8-inch (2 L) square parchment paper–lined metal cake pan; spread with blueberry filling.'
-li='Bake in centre of 350°F oven until light golden, about 45 minutes.'
-li='Let cool on rack before cutting into squares.'
-li='(Make-ahead: Cover and refrigerate for up to 2 days or overwrap with heavy-duty foil and freeze for up to 2 weeks.)'
+extends layout
+
+block content
+    h1= title
+    h2='Ingredients:'
+    ul
+        li='2-1/2 cups rolled oats, (not instant)'
+        li='1-1/4 cups all-purpose flour'
+        li='1 T grated orange rind'
+        li='1/4 t salt'
+        li='1 c cold butter, cubed'
+        li='3/4 c packed brown sugar'
+        li='3 cups fresh blueberries'
+        li='1/2 c granulated sugar'
+        li='1/3 c orange juice'
+        li='4 t cornstarch'
+    h2='Instructions:'
+    ol
+        li='Filling: In saucepan, bring blueberries, sugar and orange juice to boil; reduce heat and simmer until tender, about 10 minutes.'
+        li='Whisk cornstarch with 2 tbsp (25 mL) water; whisk into blueberries and boil, stirring, until thickened, about 1 minute.'
+        li='Place plastic wrap directly on surface; refrigerate until cooled, about 1 hour.'
+        li='In large bowl, whisk together oats, flour, sugar, orange rind and salt ; with pastry blender, cut in butter until in coarse crumbs.'
+        li='Press half into 8-inch (2 L) square parchment paper–lined metal cake pan; spread with blueberry filling.'
+        li='Bake in centre of 350°F oven until light golden, about 45 minutes.'
+        li='Let cool on rack before cutting into squares.'
+        li='(Make-ahead: Cover and refrigerate for up to 2 days or overwrap with heavy-duty foil and freeze for up to 2 weeks.)'

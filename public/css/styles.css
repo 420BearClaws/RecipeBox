@@ -15,3 +15,80 @@ img {
     border-radius: 20px;
     border: 1px solid white;
 }
+.formtitle {
+   font-family: Poppins-Bold;
+   font-size: 24px;
+   color: #333; 
+   line-height: 1.2;
+   text-align: center;
+   width: 100%;
+   display: block;
+   padding-top: 70px;
+   padding-bottom: 10px;
+}
+.buttonlogin {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+.textcenter {
+    text-align: center;
+}
+.txt {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: white;
+}
+.txt2 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+}
+.txt1 {
+    font-family: Poppins-Regular;
+    padding-top: 15px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: white;
+}
+.inputEmail {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    display: block;
+    width: 100%;
+    background: white;
+    height: 50px;
+    border-radius: 25px;
+    padding-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 68px;
+}
+
+.loginform {
+    width: 50%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
