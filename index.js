@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
+var mongoose = require("mongoose");
+var session = require("express-session");
 
 //declaring routers
 const homeRouter = require("./routes/home");
-const loginRouter = require("./routes/login");
 const signupRouter = require("./routes/signup");
 const myrecipesRouter = require("./routes/myrecipes");
 const publicrecipesRouter = require("./routes/publicrecipes");
@@ -17,6 +18,20 @@ const recipes6Router = require("./routes/recipes6");
 const app = express();
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
+
+//use sessions for tracking logins
+app.use(
+  session({
+    secret: "420BearClaws",
+    resave: true,
+    saveUninitialized: false
+  })
+);
+
+//mongodb connection
+mongoose.connect("mongodb://localhost:27017/bookworm");
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
 
 //creating a port
 const debug = require("debug")("420BC:server");
@@ -71,7 +86,6 @@ app.set("view engine", "pug");
 app.use("/", homeRouter);
 app.use("/", myrecipesRouter);
 app.use("/", publicrecipesRouter);
-app.use("/", loginRouter);
 app.use("/", signupRouter);
 app.use("/", recipesRouter);
 app.use("/", recipes2Router);
