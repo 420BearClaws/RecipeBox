@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 var mongoose = require("mongoose");
 var session = require("express-session");
+var bodyParser = require("body-parser");
+const app = express();
 
 //declaring routers
 const homeRouter = require("./routes/home");
@@ -15,7 +17,8 @@ const recipes4Router = require("./routes/recipes4");
 const recipes5Router = require("./routes/recipes5");
 const recipes6Router = require("./routes/recipes6");
 
-const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 

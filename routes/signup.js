@@ -59,20 +59,23 @@ router.post("/signup", function(req, res, next) {
     req.body.name &&
     req.body.favoriterecipe &&
     req.body.password &&
-    req.body.confrimPassword
+    req.body.confirmPassword
   ) {
+    // confirm passwords match
     if (req.body.password !== req.body.confirmPassword) {
-      var err = new Error("Password do not match.");
+      var err = new Error("Passwords do not match.");
       err.status = 400;
       return next(err);
     }
-
+    //create object with form input
     var userData = {
       email: req.body.email,
       name: req.body.name,
       favoriterecipe: req.body.favoriterecipe,
       password: req.body.password
     };
+
+    //use create to insert doc into mongo
 
     User.create(userData, function(error, user) {
       if (error) {
@@ -88,4 +91,5 @@ router.post("/signup", function(req, res, next) {
     return next(err);
   }
 });
+
 module.exports = router;
