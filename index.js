@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 const app = express();
+const Userrecipes = require('./models/userrecipes');
 
 //declaring routers
 const homeRouter = require("./routes/home");
@@ -36,6 +37,20 @@ mongoose.connect("mongodb://localhost:27017/bookworm");
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
+//To delete a personal ('userrecipes') recipe.
+function delete_recipe() {
+  console.log('Deleting personal recipe.');
+  let recipe_id = '';
+  Userrecipes.findByIdAndDelete(
+    { _id: recipe_id },
+    (err, deleted_recipe) => {
+      if (err) {
+        return console.log('Error.');
+      }
+      console.log(deleted_recipe);
+    }
+  )
+}
 //creating a port
 const debug = require("debug")("420BC:server");
 const http = require("http");
