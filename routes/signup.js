@@ -57,7 +57,7 @@ router.post("/signup", function(req, res, next) {
   if (
     req.body.email &&
     req.body.name &&
-    req.body.favoriterecipe &&
+    req.body.favoriteRecipe &&
     req.body.password &&
     req.body.confirmPassword
   ) {
@@ -71,7 +71,7 @@ router.post("/signup", function(req, res, next) {
     var userData = {
       email: req.body.email,
       name: req.body.name,
-      favoriterecipe: req.body.favoriterecipe,
+      favoriteRecipe: req.body.favoriteRecipe,
       password: req.body.password
     };
 
