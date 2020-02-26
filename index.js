@@ -4,13 +4,15 @@ var mongoose = require("mongoose");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 const app = express();
-const Userrecipes = require('./models/userrecipes');
+const Userrecipes = require("./models/userrecipes");
 
 //declaring routers
 const homeRouter = require("./routes/home");
 const signupRouter = require("./routes/signup");
 const myrecipesRouter = require("./routes/myrecipes");
 const publicrecipesRouter = require("./routes/publicrecipes");
+const loginRouter = require("./routes/login");
+const profileRouter = require("./routes/profile");
 const recipesRouter = require("./routes/recipes");
 const recipes2Router = require("./routes/recipes2");
 const recipes3Router = require("./routes/recipes3");
@@ -39,17 +41,14 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 //To delete a personal ('userrecipes') recipe.
 function delete_recipe() {
-  console.log('Deleting personal recipe.');
-  let recipe_id = '';
-  Userrecipes.findByIdAndDelete(
-    { _id: recipe_id },
-    (err, deleted_recipe) => {
-      if (err) {
-        return console.log('Error.');
-      }
-      console.log(deleted_recipe);
+  console.log("Deleting personal recipe.");
+  let recipe_id = "";
+  Userrecipes.findByIdAndDelete({ _id: recipe_id }, (err, deleted_recipe) => {
+    if (err) {
+      return console.log("Error.");
     }
-  )
+    console.log(deleted_recipe);
+  });
 }
 //creating a port
 const debug = require("debug")("420BC:server");
@@ -105,6 +104,8 @@ app.use("/", homeRouter);
 app.use("/", myrecipesRouter);
 app.use("/", publicrecipesRouter);
 app.use("/", signupRouter);
+app.use("/", loginRouter);
+app.use("/", profileRouter);
 app.use("/", recipesRouter);
 app.use("/", recipes2Router);
 app.use("/", recipes3Router);
