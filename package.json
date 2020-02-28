@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "mongoose": "^5.9.1",
+    "mongoose-authorization": "^2.0.0-alpha.1",
     "nodemon": "^2.0.2",
     "pug": "^2.0.4",
     "save": "^2.4.0"
