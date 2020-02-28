@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
+var authz = require('mongoose-authorization');
+
 var RecipeSchema = new mongoose.Schema({
-  name: {
+  Title: {
     type: String,
     required: true,
   },
@@ -11,6 +13,24 @@ var RecipeSchema = new mongoose.Schema({
     type: String,
   }
 });
+
+RecipeSchema.permissions = {
+  defaults: {
+    read: ['Title', 'Ingredients', 'Instructions']
+  },
+  admin: {
+    read: ['status'],
+    write: ['status'],
+    create: true,
+    remove: true
+  },
+  owner: {
+    read: ['status'],
+    write: ['Title', 'Ingredients', 'Instructions'],
+    create: true,
+    remove: true
+  }
+};
 
 const Userrecipes = mongoose.model('Userrecipes', RecipeSchema);
 module.exports =Userrecipes;
