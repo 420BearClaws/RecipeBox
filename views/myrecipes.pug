@@ -1,4 +1,18 @@
 extends layout
 
 block content
-  h1= title
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-1 Add New Recipe
+        form(method='POST' action='/add')
+        div.form-group
+          label(for='title') Name
+          input.form-control(type='text' id='title' name='title')
+        div.form-group
+          label(for='ingredients') Ingredients
+          input.form-control(type='text' id='ingredients' name='ingredients')
+        div.form-group
+          label(for='instructions') Instructions
+          input.form-control(type='text' id='instructions' name='instructions')
+        button.btn.btn-primary(type='submit') Add Recipe
