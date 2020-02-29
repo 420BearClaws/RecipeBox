@@ -15,4 +15,7 @@ block content
         div.form-group
           label(for='instructions') Instructions
           input.form-control(type='text' id='instructions' name='instructions')
-        button.btn.btn-primary(type='submit') Add Recipe
+        button.btn.btn-primary(type='submit') Add Recipe 
+        br
+        button.btn.btn-primary(type='delete' onClick= "return confirm('Are you sure you want to delete')") Delete Recipe
+
