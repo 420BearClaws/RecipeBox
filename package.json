@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/420BearClaws/RecipeBox.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ren, Kat, James, Heather, Glade",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/420BearClaws/RecipeBox/issues"
   },
@@ -20,11 +20,20 @@
   "dependencies": {
     "bcrypt": "^4.0.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.1",
+    "mongoose-authorization": "^2.0.0-alpha.1",
     "nodemon": "^2.0.2",
     "pug": "^2.0.4",
     "save": "^2.4.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "MongoDb",
+    "Pug",
+    "bcrypt"
+  ]
 }

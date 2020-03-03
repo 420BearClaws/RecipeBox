@@ -5,6 +5,30 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 const app = express();
 const Userrecipes = require("./models/userrecipes");
+const moment = require('moment');
+const User = require('./models/user');
+
+console.log("Initializing Mongoose Test");
+
+let connection_string = "mongodb://127.0.0.1:27017/mongoose_test_app?retryWrites=true&w=majority";
+
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useNewUrlParser', true);
+
+//Returning a Javascript Promise
+mongoose.connect(connection_string)
+    .then(
+      () => {
+        console.log("Connected to MongoDB");
+      }
+    )
+    .catch(
+      (error) => {
+        console.log('An error has occured: ', error);
+      }
+    );
 
 //declaring routers
 const homeRouter = require("./routes/home");
