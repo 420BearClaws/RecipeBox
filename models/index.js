@@ -1,1 +1,1 @@
-exports.userrecipes = require('../userrecipes')
+exports.userrecipes = require('./userrecipes')
