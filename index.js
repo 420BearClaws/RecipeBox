@@ -41,6 +41,7 @@ const recipes3Router = require("./routes/recipes3");
 const recipes4Router = require("./routes/recipes4");
 const recipes5Router = require("./routes/recipes5");
 const recipes6Router = require("./routes/recipes6");
+const logoutRouter = require("./routes/logout");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -81,15 +82,13 @@ function delete_recipe() {
   });
 }
 
-
 function find_all_books() {
   userrecipes.find({}, (err, myrecipes) => {
-      if (err) {
-          return console.log('Error:', err);
-      }
-      console.log(myrecipes);
-  })
-
+    if (err) {
+      return console.log("Error:", err);
+    }
+    console.log(myrecipes);
+  });
 }
 //creating a port
 const debug = require("debug")("420BC:server");
@@ -153,4 +152,5 @@ app.use("/", recipes3Router);
 app.use("/", recipes4Router);
 app.use("/", recipes5Router);
 app.use("/", recipes6Router);
+app.use("/", logoutRouter);
 module.exports = app;
