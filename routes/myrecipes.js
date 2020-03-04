@@ -12,12 +12,13 @@ router.get("/myrecipes", function(req, res, next) {
   let recipes_query = userrecipes.find({});
   recipes_query.sort({ title: 1 });
   let find_promise = recipes_query.exec();
+  console.log('Is a Promise: ' + (find_promise instanceof Promise));
   find_promise
     .then((myrecipes) => {
       res.json(myrecipes)
     })
     .catch((err) => {
-      res.status(500).json(error);
+      console.log ('Error.')
     });
 });
 
