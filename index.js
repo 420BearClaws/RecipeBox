@@ -80,6 +80,17 @@ function delete_recipe() {
     console.log(deleted_recipe);
   });
 }
+
+
+function find_all_books() {
+  userrecipes.find({}, (err, myrecipes) => {
+      if (err) {
+          return console.log('Error:', err);
+      }
+      console.log(myrecipes);
+  })
+
+}
 //creating a port
 const debug = require("debug")("420BC:server");
 const http = require("http");
