@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/user");
+var mid = require("../middleware/middleware.js");
 
 // GET /login
 router.get("/login", mid.loggedOut, function(req, res, next) {
