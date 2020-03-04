@@ -2,7 +2,8 @@ doctype html
 html
   head
     link(type='text/css' href='/css/styles.css' rel='stylesheet')
-    title= title
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  title= title
   body
     div
     a.navButton(href='home')
@@ -17,6 +18,10 @@ html
 
     if currentUser
       img(src='images/bclogout.png')
+<<<<<<< HEAD
+=======
+    a.navButton(href='home')
+>>>>>>> cbda07929e3bc2c6432191ea206d53066b6d2a55
 
     block content
     footer
