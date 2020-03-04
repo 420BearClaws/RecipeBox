@@ -5,8 +5,7 @@ html
     title= title
   body
     div
-    a(href='/')
-    if !currentUser
+    a.navButton(href='home')
       img(src='images/BearClawLogo.png' height='75px' width='100px')
     a.navButton(href='signup')
       img(src='images/bclogin.png' height='75px' width='100px')
@@ -14,12 +13,11 @@ html
       img(src='images/bcmyrecipes.png' height='75px' width='100px')
     a.navButton(href='publicrecipes')
       img(src='images/bcpublic.png' height='75px' width='100px')
-      img(src='images/BearClawBanner.png')
+    img(src='images/BearClawBanner.png')
 
     if currentUser
       img(src='images/bclogout.png')
-    a.navButton(href='home')
-        
+
     block content
     footer
       p All original content on this page is &copy; 2020 BearClawRecipeForum, Inc.
