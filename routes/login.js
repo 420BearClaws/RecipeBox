@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require("../models/user");
 
 // GET /login
-router.get("/login", function(req, res, next) {
+router.get("/login", mid.loggedOut, function(req, res, next) {
   res.send("login", { title: "Login" });
 });
 

@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
-var User = require("../models/user");
+var User = require("../models/user.js");
+var mid = require("../middleware/middleware.js");
 
 // GET /signup
-router.get("/signup", function(req, res, next) {
+router.get("/signup", mid.loggedOut, function(req, res, next) {
   res.render("signup", { title: "Create An Account" });
 });
 
