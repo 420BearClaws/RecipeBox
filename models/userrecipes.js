@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var authz = require('mongoose-authorization');
 var bcrypt = require("bcrypt");
-var RecipeSchema = new mongoose.Schema({
+const RecipeSchema = new mongoose.Schema({
   Title: {
     type: String,
     required: true,
