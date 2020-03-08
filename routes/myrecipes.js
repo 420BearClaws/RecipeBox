@@ -12,8 +12,8 @@ router.get("/myrecipes", mid.requiresLogin, function(req, res, next) {
   let find_promise = recipes_query.exec();
   console.log("Is a Promise: " + (find_promise instanceof Promise));
   find_promise
-    .then(myrecipes => {
-      res.json(myrecipes);
+    .then(userrecipes => {
+      res.json(userrecipes);
     })
     .catch(err => {
       console.log("Error.");
@@ -21,13 +21,13 @@ router.get("/myrecipes", mid.requiresLogin, function(req, res, next) {
 });
 
 router.post("/", function(req, res, next) {
-  const new_book = new userrecipes(req.body);
+  const new_recipe = new userrecipes(req.body);
 
   let save_promise_one = new_recipe.save();
   console.log("Is a promise: " + (save_promise_one instanceof Promise));
   save_promise_one
     .then(saved_recipe => {
-      res.json(myrecipes);
+      res.json(userrecipes);
     })
     .catch(err => {
       res.status(500).json(err);
