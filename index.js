@@ -72,7 +72,7 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 //To delete a personal ('userrecipes') recipe.
 function delete_recipe() {
-  console.log("Deleting personal recipe.");
+  console.log("Deleting user recipe.");
   let recipe_id = "";
   Userrecipes.findByIdAndDelete({ _id: recipe_id }, (err, deleted_recipe) => {
     if (err) {
@@ -83,11 +83,11 @@ function delete_recipe() {
 }
 
 function find_all_books() {
-  userrecipes.find({}, (err, myrecipes) => {
+  userrecipes.find({}, (err, userrecipes) => {
     if (err) {
       return console.log("Error:", err);
     }
-    console.log(myrecipes);
+    console.log(userrecipes);
   });
 }
 //creating a port
