@@ -33,7 +33,7 @@ html
           input.form-control(type='text' id='instructions' name='instructions')
         button.btn.btn-primary(type='submit') Add Recipe 
         br
-        button.btn.btn-primary(type='delete' onClick= "return confirm('Are you sure you want to delete')") Delete Recipe
+        a.btn.btn-danger.delete.recipe(type='delete') Delete Recipe
 
 block content
     footer
