@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var mid = require("../middleware/middleware.js");
-let { userrecipes } = require("../models");
+const userrecipes = require("../models/userrecipes");
 
 /* GET user recipes listing. */
-router.get("/myrecipes", mid.requiresLogin, function(req, res, next) {
+router.get("/myrecipes", mid.requiresLogin, function (req, res, next) {
   res.render("myrecipes", { title: "My Recipes" });
 
   let recipes_query = userrecipes.find({});
@@ -20,7 +20,7 @@ router.get("/myrecipes", mid.requiresLogin, function(req, res, next) {
     });
 });
 
-router.post("/", function(req, res, next) {
+router.post("/", function (req, res, next) {
   const new_recipe = new userrecipes(req.body);
 
   let save_promise_one = new_recipe.save();
@@ -33,5 +33,9 @@ router.post("/", function(req, res, next) {
       res.status(500).json(err);
     });
 });
-
+router.delete('/myrecipes', (req, res) => {
+  db.collection('recipes').findOneAndDelete({ name: req.body.name }, (err, result) => {
+    if (err) return res.send(500, err), res.send('Recipe deleted.')
+  })
+})
 module.exports = router;
