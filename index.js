@@ -23,6 +23,7 @@ mongoose
   .connect(connection_string)
   .then(() => {
     console.log("Connected to MongoDB");
+    delete_recipe()
   })
   .catch(error => {
     console.log("An error has occured: ", error);
@@ -58,7 +59,7 @@ app.use(
 );
 
 // make user ID available in templates
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.currentUser = req.session.userID;
   next();
 });
@@ -72,17 +73,18 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 //To delete a personal ('userrecipes') recipe.
 function delete_recipe() {
-  console.log("Deleting user recipe.");
   let recipe_id = "";
-  Userrecipes.findByIdAndDelete({ _id: recipe_id }, (err, deleted_recipe) => {
-    if (err) {
-      return console.log("Error.");
-    }
-    console.log(deleted_recipe);
-  });
+  userrecipes.findByIdAndDelete(
+    { _id: recipe_id },
+    (err, deleted_recipe) => {
+      if (err) {
+        return console.log('Error', err);
+      }
+      console.log(deleted_recipe);
+    });
 }
 
-function find_all_books() {
+function find_all_recipes() {
   userrecipes.find({}, (err, userrecipes) => {
     if (err) {
       return console.log("Error:", err);
