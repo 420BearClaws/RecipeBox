@@ -8,7 +8,7 @@ router.get("/myrecipes", mid.requiresLogin, function (req, res, next) {
   res.render("myrecipes", { title: "My Recipes" });
 
   let recipes_query = userrecipes.find({});
-  recipes_query.sort({ title: 1 });
+  recipes_query.sort({id});
   let find_promise = recipes_query.exec();
   console.log("Is a Promise: " + (find_promise instanceof Promise));
   find_promise
@@ -20,7 +20,8 @@ router.get("/myrecipes", mid.requiresLogin, function (req, res, next) {
     });
 });
 
-router.post("/", function (req, res, next) {
+router.post("/myrecipes", function (req, res, next) {
+  console.log(req.body.id)
   const new_recipe = new userrecipes(req.body);
 
   let save_promise_one = new_recipe.save();
@@ -33,9 +34,15 @@ router.post("/", function (req, res, next) {
       res.status(500).json(err);
     });
 });
-router.delete('/myrecipes', (req, res) => {
-  db.collection('recipes').findOneAndDelete({ name: req.body.name }, (err, result) => {
-    if (err) return res.send(500, err), res.send('Recipe deleted.')
-  })
-})
+const delete_recipe = evt => {
+  userrecipes.findByIdAndDelete(
+    { _id: event.target.id },
+    (err, deleted_recipe) => {
+      if (err) {
+        return console.log('Error', err);
+      }
+      console.log(deleted_recipe);
+    });
+}
+
 module.exports = router;
