@@ -23,7 +23,6 @@ mongoose
   .connect(connection_string)
   .then(() => {
     console.log("Connected to MongoDB");
-    delete_recipe()
   })
   .catch(error => {
     console.log("An error has occured: ", error);
@@ -71,18 +70,6 @@ mongoose.connect(
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
-//To delete a personal ('userrecipes') recipe.
-function delete_recipe() {
-  let recipe_id = "";
-  userrecipes.findByIdAndDelete(
-    { _id: recipe_id },
-    (err, deleted_recipe) => {
-      if (err) {
-        return console.log('Error', err);
-      }
-      console.log(deleted_recipe);
-    });
-}
 
 function find_all_recipes() {
   userrecipes.find({}, (err, userrecipes) => {
