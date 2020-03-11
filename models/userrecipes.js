@@ -11,26 +11,10 @@ const RecipeSchema = new mongoose.Schema({
   },
   Instructions: {
     type: String,
-  }
+  },
 });
 
-RecipeSchema.permissions = {
-  defaults: {
-    read: ['Title', 'Ingredients', 'Instructions']
-  },
-  admin: {
-    read: ['status'],
-    write: ['status'],
-    create: true,
-    remove: true
-  },
-  owner: {
-    read: ['status'],
-    write: ['Title', 'Ingredients', 'Instructions'],
-    create: true,
-    remove: true
-  }
-};
+
 
 const Userrecipes = mongoose.model('Userrecipes', RecipeSchema);
 module.exports =Userrecipes;
