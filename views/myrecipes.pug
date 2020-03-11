@@ -21,7 +21,7 @@ html
     .row
       .col-md-6.col-md-offset-3
         h1.display-4.m-b-1 Add New Recipe
-        form(method='POST' action='/add')
+        form(method='POST' action='/addrecipe')
         div.form-group
           label(for='title') Name
           input.form-control(type='text' id='title' name='title')
@@ -31,7 +31,7 @@ html
         div.form-group
           label(for='instructions') Instructions
           input.form-control(type='text' id='instructions' name='instructions')
-        button.btn.btn-primary(type='submit') Add Recipe 
+        button.btn.btn-primary(type='submit') Add Recipe
         br
         div.btn.btn-danger.delete.recipe(type='delete' id= 1) Delete Recipe
         br
@@ -42,6 +42,13 @@ html
     
     script(src="/javascript/recipes.js")
 block content
+  #recipe-section(type="text/number" name="recipe-section" value="")
+    .row(value="15")
+      .col-md-6.col-md-offset-3(value="50")
+        h1.display-4.m-b-2 My Recipes 
+          #recipe-name(value="")
+          #recipe-ingredients(value="")
+          #recipe-instructions(value="")
   footer
     p All original content on this page is &copy; 2020 BearClawRecipeForum, Inc.
 
