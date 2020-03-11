@@ -33,14 +33,14 @@ html
           input.form-control(type='text' id='instructions' name='instructions')
         button.btn.btn-primary(type='submit') Add Recipe 
         br
-        a.btn.btn-danger.delete.recipe(type='delete') Delete Recipe
+        div.btn.btn-danger.delete.recipe(type='delete' id= 1) Delete Recipe
         br
       label(for= 'public') Public
       input(type='radio', name='public_private', value='public') 
       label(for= 'private') Private
       input(type='radio', name='public_private', value='private')
     
-
+    script(src="/javascript/recipes.js")
 block content
   footer
     p All original content on this page is &copy; 2020 BearClawRecipeForum, Inc.
