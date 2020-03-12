@@ -92,3 +92,10 @@ img {
     padding: 0;
     box-sizing: border-box;
 }
+#flagbutton {
+        color: white;
+        font-size: 20px;
+        background-image: linear-gradient(rgb(146, 29, 255), rgb(163, 0, 114));;
+        border-radius: 20px;
+        padding: 3px;
+}
