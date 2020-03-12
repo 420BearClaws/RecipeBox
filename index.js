@@ -142,4 +142,67 @@ app.use("/", recipes4Router);
 app.use("/", recipes5Router);
 app.use("/", recipes6Router);
 app.use("/", logoutRouter);
+// Glade's tinkering
+
+// connect to the db and start the express server
+let dataVar;
+mongoose.connect(connection_string, (err, database) => {
+  if(err) {
+    return console.log(err);
+  }
+  dataVar = database;
+  // start the express web server listening on 8080
+  app.listen(8080, () => {
+    console.log('listening on 8080');
+  });
+});
+// serve the homepage
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/layout.pug');
+});
+// add a document to the DB collection recording the click event
+app.post('/flagged', (req, res) => {
+  const flag = {clickTime: new Date()};
+  console.log(flag);
+  console.log(dataVar);
+
+  dataVar.collection('flags').save(flag, (err, result) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('flag added to db');
+    res.sendStatus(201);
+  });
+});
+//clickins
+app.post('/clicked', (req, res) => {
+  const click = {clickTime: new Date()};
+  console.log(click);
+  console.log(dataVar);
+
+  dataVar.collection('clicks').save(click, (err, result) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('click added to db');
+    res.sendStatus(201);
+  });
+});
+
+// get the click data from the database
+app.get('/flags', (req, res) => {
+  dataVar.collection('flags').find().toArray((err, result) => {
+    if (err) return console.log(err);
+    res.send(result);
+  });
+});
+//clickins
+app.get('/clicks', (req, res) => {
+  dataVar.collection('clicks').find().toArray((err, result) => {
+    if (err) return console.log(err);
+    res.send(result);
+  });
+});
+
+//done tinkering
 module.exports = app;
