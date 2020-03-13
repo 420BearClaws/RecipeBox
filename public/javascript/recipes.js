@@ -6,7 +6,7 @@ const delete_recipe = (event) => {
 
     sender.open('POST', 'http://localhost:3000/myrecipes', true)
     sender.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
-    sender.send(JSON.stringify(tester));
+    sender.send(JSON.stringify(id));
     console.log(event.target.id)
 }
 
