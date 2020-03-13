@@ -14,9 +14,6 @@ const RecipeSchema = new mongoose.Schema({
   },
   isPublic: { 
     type: Boolean, default: false 
-  },
-  isPrivate: {
-    type: Boolean, default: true
   }
 });
 
