@@ -71,14 +71,6 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 
-function find_all_recipes() {
-  userrecipes.find({}, (err, userrecipes) => {
-    if (err) {
-      return console.log("Error:", err);
-    }
-    console.log(userrecipes);
-  });
-}
 //creating a port
 const debug = require("debug")("420BC:server");
 const http = require("http");
