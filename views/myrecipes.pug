@@ -31,7 +31,7 @@ html
         div.form-group
           label(for='instructions') Instructions
           input.form-control(type='text' id='instructions' name='instructions')
-        button.btn.btn-primary(type='submit') Add Recipe
+        button.btn.btn-primary(type='submit' id='newRecipe') Add Recipe
         br
         div.btn.btn-danger.delete.recipe(type='delete' id= 1) Delete Recipe
         br
@@ -41,7 +41,8 @@ html
       label(for= 'private') Private
       input(type='radio', name='public_private', value='private')
     
-    script(src="/javascript/recipes.js")
+    script(src="./javascript/recipes.js")
+    script(src="./javascript/addRecipe.js")
 block content
   #recipe-section(type="text/number" name="recipe-section" value="")
     .row(value="15")
