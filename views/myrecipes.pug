@@ -24,7 +24,7 @@ html
         form(method='POST' action='/addrecipe')
         div.form-group
           label(for='title') Name
-          input.form-control(type='text' id='title' name='title')
+          input.form-control(type='text' id='title' name='title' placeholder='Enter Recipe Name')
         div.form-group
           label(for='ingredients') Ingredients
           input.form-control(type='text' id='ingredients' name='ingredients')
@@ -35,6 +35,7 @@ html
         br
         div.btn.btn-danger.delete.recipe(type='delete' id= 1) Delete Recipe
         br
+        button.btn.btn-edit(type='submit') Edit Recipe
       label(for= 'public') Public
       input(type='radio', name='public_private', value='public') 
       label(for= 'private') Private
